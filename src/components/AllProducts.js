@@ -8,6 +8,7 @@ import './AllProducts.css'; // Import the CSS file
 
 const AllProducts = () => {
   const [editingProductId, setEditingProductId] = useState(null);
+  const [editedProduct, setEditedProduct] = useState({});
   const [sorted, setSorted] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.products);
@@ -23,16 +24,28 @@ const AllProducts = () => {
   }, [dispatch]);
 
   const handleEdit = (product) => {
-    const updatedProduct = { ...product, price: product.price + 1 }; // Example edit
-    axios.put(`https://my-json-server.typicode.com/ayush2342/dataRepo/products/${product.id}`, updatedProduct)
+    setEditingProductId(product.id);
+    setEditedProduct(product);
+  };
+
+  const handleSave = (productId) => {
+    axios.put(`https://my-json-server.typicode.com/ayush2342/dataRepo/products/${productId}`, editedProduct)
       .then(() => {
-        dispatch({ type: 'UPDATE_PRODUCT', payload: updatedProduct });
+        dispatch({ type: 'UPDATE_PRODUCT', payload: editedProduct });
         toast.success('Product updated successfully');
         setEditingProductId(null);
       })
       .catch(() => {
         toast.error('Failed to update product');
       });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedProduct({
+      ...editedProduct,
+      [name]: value
+    });
   };
 
   const handleDelete = (productId) => {
@@ -65,13 +78,35 @@ const AllProducts = () => {
           <div className="product-card" key={product.id}>
             <img src={product.image} alt={product.name} />
             <div className="product-card-content">
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p className="price">Price: ${product.price}</p>
               {editingProductId === product.id ? (
-                <button onClick={() => handleEdit(product)}>Save</button>
+                <>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    value={editedProduct.name} 
+                    onChange={handleChange} 
+                  />
+                  <textarea
+                    name="description"
+                    value={editedProduct.description}
+                    onChange={handleChange}
+                  />
+                  <input
+                    type="number"
+                    name="price"
+                    value={editedProduct.price}
+                    onChange={handleChange}
+                  />
+                  <button onClick={() => handleSave(product.id)}>Save</button>
+                  <button onClick={() => setEditingProductId(null)}>Cancel</button>
+                </>
               ) : (
-                <button onClick={() => setEditingProductId(product.id)}>Edit</button>
+                <>
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <p className="price">Price: ${product.price}</p>
+                  <button onClick={() => handleEdit(product)}>Edit</button>
+                </>
               )}
               <button className="delete" onClick={() => handleDelete(product.id)}>Delete</button>
               <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
