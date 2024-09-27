@@ -1,12 +1,12 @@
-// src/components/Cart.js
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart } from '../redux/actions/cartActions';
 import { toast } from 'react-toastify';
+import './Cart.css'; // Import the CSS file
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.cartItems);
+  const cartItems = useSelector(state => state.cart.cart || []); // Safely access cart state
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
@@ -14,11 +14,11 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <h2>Your Cart</h2>
-      {cartItems.length === 0 && <p>Your cart is empty</p>}
+    <div className="cart-container">
+      <h2 className="cart-header">Your Cart</h2>
+      {cartItems.length === 0 && <p className="cart-empty">Your cart is empty</p>}
       {cartItems.map(item => (
-        <div key={item.id}>
+        <div key={item.id} className="cart-item">
           <img src={item.image} alt={item.name} />
           <h3>{item.name}</h3>
           <p>Price: ${item.price}</p>

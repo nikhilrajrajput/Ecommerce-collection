@@ -7,22 +7,23 @@ import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
-  const { id } = useParams();
+  const { id } = useParams(); // Get product ID from URL params
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`/api/products/${id}`) // Replace with your API endpoint
+    // Fetch the product details using the correct API endpoint
+    axios.get(`https://my-json-server.typicode.com/ayush2342/dataRepo/products/${id}`)
       .then(response => {
-        setProduct(response.data);
+        setProduct(response.data); // Set the product details in state
       })
       .catch(() => {
-        toast.error('Failed to fetch product details');
+        toast.error('Failed to fetch product details'); // Show error toast if the request fails
       });
   }, [id]);
 
   const handleAddToCart = () => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
-    toast.success('Product added to cart');
+    dispatch({ type: 'ADD_TO_CART', payload: product }); // Dispatch action to add product to cart
+    toast.success('Product added to cart'); // Show success toast
   };
 
   return (
@@ -34,7 +35,7 @@ const ProductDetail = () => {
         <p>Price: ${product.price}</p>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
-    ) : <p>Loading...</p>
+    ) : <p>Loading...</p> // Display a loading message while fetching the product details
   );
 };
 
