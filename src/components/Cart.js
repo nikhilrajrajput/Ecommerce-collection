@@ -1,20 +1,21 @@
 // src/components/Cart.js
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../redux/actions/cartActions';
 import { toast } from 'react-toastify';
 
 const Cart = () => {
-  const cartItems = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.cartItems);
 
   const handleRemoveFromCart = (productId) => {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
+    dispatch(removeFromCart(productId));
     toast.success('Product removed from cart');
   };
 
   return (
     <div>
-      <h2>Cart Items</h2>
+      <h2>Your Cart</h2>
       {cartItems.length === 0 && <p>Your cart is empty</p>}
       {cartItems.map(item => (
         <div key={item.id}>

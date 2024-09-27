@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { addToCart } from '../redux/actions/cartActions';
+import './AllProducts.css'; // Import the CSS file
 
 const AllProducts = () => {
   const [editingProductId, setEditingProductId] = useState(null);
@@ -44,6 +46,11 @@ const AllProducts = () => {
       });
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success('Product added to cart');
+  };
+
   const handleSort = () => {
     setSorted(!sorted);
   };
@@ -52,21 +59,26 @@ const AllProducts = () => {
 
   return (
     <div>
-      <button onClick={handleSort}>{sorted ? 'Remove Sort' : 'Sort by Price'}</button>
-      {sortedProducts.map(product => (
-        <div key={product.id}>
-          <img src={product.image} alt={product.name} />
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
-          {editingProductId === product.id ? (
-            <button onClick={() => handleEdit(product)}>Save</button>
-          ) : (
-            <button onClick={() => setEditingProductId(product.id)}>Edit</button>
-          )}
-          <button onClick={() => handleDelete(product.id)}>Delete</button>
-        </div>
-      ))}
+      <button className="sort-button" onClick={handleSort}>{sorted ? 'Remove Sort' : 'Sort by Price'}</button>
+      <div className="products-container">
+        {sortedProducts.map(product => (
+          <div className="product-card" key={product.id}>
+            <img src={product.image} alt={product.name} />
+            <div className="product-card-content">
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <p className="price">Price: ${product.price}</p>
+              {editingProductId === product.id ? (
+                <button onClick={() => handleEdit(product)}>Save</button>
+              ) : (
+                <button onClick={() => setEditingProductId(product.id)}>Edit</button>
+              )}
+              <button className="delete" onClick={() => handleDelete(product.id)}>Delete</button>
+              <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
