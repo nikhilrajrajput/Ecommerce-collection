@@ -23,27 +23,27 @@ You may also see any lint errors in the console.
 
 ###  Project Structure
 <p>
-my-app/
-├── public/
-│   ├── index.html
-├── src/
-│   ├── components/
-│   │   ├── Navbar.js
-│   │   ├── ProductDetail.js
-│   │   ├── AllProducts.js
-│   │   ├── Cart.js
-│   ├── redux/
-│   │   ├── actions/
-│   │   │   ├── cartActions.js
-│   │   ├── reducers/
-│   │   │   ├── cartReducer.js
-│   │   │   ├── productReducer.js
-│   │   ├── store.js
-│   ├── App.js
-│   ├── index.js
-│   ├── styles/
-│   │   ├── Cart.css
-│   │   ├── Navbar.css
-│   ├── package.json
+my-app/<br>
+├── public/<br>
+│   ├── index.html<br>
+├── src/<br>
+│   ├── components/<br>
+│   │   ├── Navbar.js<br>
+│   │   ├── ProductDetail.js<br>
+│   │   ├── AllProducts.js<br>
+│   │   ├── Cart.js<br>
+│   ├── redux/<br>
+│   │   ├── actions/<br>
+│   │   │   ├── cartActions.js<br>
+│   │   ├── reducers/<br>
+│   │   │   ├── cartReducer.js<br>
+│   │   │   ├── productReducer.js<br>
+│   │   ├── store.js<br>
+│   ├── App.js<br>
+│   ├── index.js<br>
+│   ├── styles/<br>
+│   │   ├── Cart.css<br>
+│   │   ├── Navbar.css<br>
+│   ├── package.json<br>
 </p>
 
