@@ -22,6 +22,7 @@ You may also see any lint errors in the console.
 ![image](https://github.com/user-attachments/assets/383a8dd3-89bd-4b4a-a5c3-d3e85377a1ec)
 
 ###  Project Structure
+<p>
 my-app/
 ├── public/
 │   ├── index.html
@@ -44,5 +45,5 @@ my-app/
 │   │   ├── Cart.css
 │   │   ├── Navbar.css
 │   ├── package.json
-
+</p>
 
