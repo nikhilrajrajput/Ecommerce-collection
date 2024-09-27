@@ -32,6 +32,8 @@ my-app/<br>
 │   │   ├── ProductDetail.js<br>
 │   │   ├── AllProducts.js<br>
 │   │   ├── Cart.js<br>
+│   │   ├── Cart.css<br>
+│   │   ├── Navbar.css<br>
 │   ├── redux/<br>
 │   │   ├── actions/<br>
 │   │   │   ├── cartActions.js<br>
@@ -41,9 +43,6 @@ my-app/<br>
 │   │   ├── store.js<br>
 │   ├── App.js<br>
 │   ├── index.js<br>
-│   ├── styles/<br>
-│   │   ├── Cart.css<br>
-│   │   ├── Navbar.css<br>
 │   ├── package.json<br>
 </p>
 
