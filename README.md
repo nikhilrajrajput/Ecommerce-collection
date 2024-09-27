@@ -14,4 +14,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-# Hosted URL- [https://github.com/nikhilrajrajput/albums-collection](https://nikhilrajrajput.github.io/albums-collection/)
+# Hosted URL- https://nikhilrajrajput.github.io/Ecommerce-collection/
