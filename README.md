@@ -15,3 +15,5 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 # Hosted URL- [https://nikhilrajrajput.github.io/Ecommerce-collection/](https://nikhilrajrajput.github.io/albums-collection/)
+
+## Click on All Products to vist all the product
