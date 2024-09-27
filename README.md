@@ -17,3 +17,7 @@ You may also see any lint errors in the console.
 # Hosted URL- [https://nikhilrajrajput.github.io/Ecommerce-collection/](https://nikhilrajrajput.github.io/albums-collection/)
 
 ## Click on All Products to vist all the product
+
+![image](https://github.com/user-attachments/assets/3e9157e9-c063-4723-a6d1-4179119ceb51)<br>
+![image](https://github.com/user-attachments/assets/383a8dd3-89bd-4b4a-a5c3-d3e85377a1ec)
+
