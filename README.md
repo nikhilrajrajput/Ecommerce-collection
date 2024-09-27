@@ -21,3 +21,28 @@ You may also see any lint errors in the console.
 ![image](https://github.com/user-attachments/assets/3e9157e9-c063-4723-a6d1-4179119ceb51)<br>
 ![image](https://github.com/user-attachments/assets/383a8dd3-89bd-4b4a-a5c3-d3e85377a1ec)
 
+###  Project Structure
+my-app/
+├── public/
+│   ├── index.html
+├── src/
+│   ├── components/
+│   │   ├── Navbar.js
+│   │   ├── ProductDetail.js
+│   │   ├── AllProducts.js
+│   │   ├── Cart.js
+│   ├── redux/
+│   │   ├── actions/
+│   │   │   ├── cartActions.js
+│   │   ├── reducers/
+│   │   │   ├── cartReducer.js
+│   │   │   ├── productReducer.js
+│   │   ├── store.js
+│   ├── App.js
+│   ├── index.js
+│   ├── styles/
+│   │   ├── Cart.css
+│   │   ├── Navbar.css
+│   ├── package.json
+
+
